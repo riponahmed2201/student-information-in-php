@@ -3,9 +3,9 @@ session_start();
 
  include'dbConnection.php';
 
-    $id = $_GET['id'];
+    $roll = $_GET['roll'];
 
-    $deleteQuery = "DELETE FROM `students` WHERE id = $id"; 
+    $deleteQuery = "DELETE FROM `students` WHERE roll = $roll"; 
 
      mysqli_query($conn,$deleteQuery);
     // var_dump($test);

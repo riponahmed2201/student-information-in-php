@@ -74,7 +74,7 @@
             unset($_SESSION['message']);
         }
     ?>
-    
+
     <table id="customers">
   <tr>
     <th>#</th>
@@ -105,7 +105,7 @@
         <td> <?php echo $result['phoneNumber']; ?> </td>
         <td> <?php echo $result['address']; ?> </td>
         <td> 
-            <a id="delete-button" href="delete.php?id=<?php echo $result['id'];?>" class="text-white"> Delete </a>
+            <a id="delete-button" href="delete.php?roll=<?php echo $result['roll'];?>" class="text-white"> Delete </a>
             <a id="edit-button" href="update.php?id=<?php echo $result['id'];?>">Edit</a> 
         </td>
         </tr>
