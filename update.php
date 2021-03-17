@@ -11,6 +11,10 @@ include'dbConnection.php';
 
     $resultData = mysqli_fetch_array($query);
 
+    // echo '<pre>';
+    // var_dump($resultData);
+    // exit;
+
 
     if(isset($_POST['done'])){
 
@@ -50,12 +54,29 @@ include'dbConnection.php';
     <title> Student Information </title>
     <link rel="stylesheet" href="style.css">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <style>
+     #edit-student-button{
+        background-color: green; /* Green */
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left:180px;
+        text-decoration:none; 
+        float:right;
+      }
+
+     </style>
    </head>
 <body>
   <div class="container">
     <div class="title">
-        Add Student Information
-        <a href="index.php" class="all-table-data" style="float-right; margin-left:180px; text-decoration:none; color:black">All Student</a>
+        Edit Student Information
+        <a href="index.php" class="all-table-data" id="edit-student-button">All Student</a>
     </div>
     <div class="content">
     <?php
@@ -79,7 +100,7 @@ include'dbConnection.php';
 
           <div class="input-box">
             <span class="details">Roll</span>
-            <input type="number" name="roll"  value=" <?php echo $resultData['roll']; ?> " required placeholder="Enter roll" required>
+            <input type="text" name="roll"  value=" <?php echo $resultData['roll']; ?> " required placeholder="Enter roll" required>
           </div>
 
           <div class="input-box">
@@ -88,7 +109,7 @@ include'dbConnection.php';
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="number" name="phoneNumber" value=" <?php echo $resultData['phoneNumber']; ?> " required placeholder="Enter number" required>
+            <input type="text" name="phoneNumber" value=" <?php echo $resultData['phoneNumber']; ?> " required placeholder="Enter number" required>
           </div>
           <div class="input-box">
             <span class="details">Address</span>

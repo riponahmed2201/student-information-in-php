@@ -40,12 +40,29 @@ include'dbConnection.php';
     <title> Student Information </title>
     <link rel="stylesheet" href="style.css">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <style>
+     #add-student-button{
+        background-color: green; /* Green */
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left:180px;
+        text-decoration:none; 
+        float:right;
+      }
+
+     </style>
    </head>
 <body>
   <div class="container">
     <div class="title">
         Add Student Information
-        <a href="index.php" class="all-table-data" style="float-right; margin-left:180px; text-decoration:none; color:black">All Student</a>
+        <a href="index.php" class="all-table-data" id="add-student-button">All Student</a>
     </div>
     <div class="content">
     <?php
