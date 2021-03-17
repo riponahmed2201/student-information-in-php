@@ -60,7 +60,24 @@
   display: inline-block;
   font-size: 16px;
 }
+
+#search-button{
+  background-color: green; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+#gsearch{
+  padding: 5px 8px;
+  text-align: center;
+  display: inline-block;
+}
+
 </style>
+
 </head>
 <body>
 
@@ -73,8 +90,24 @@
             echo "<div id='error_msg' style='color:green; text-align:center'>".$_SESSION['message']."</div>";
             unset($_SESSION['message']);
         }
-    ?>
 
+        include'dbConnection.php';
+
+        if (isset($_POST['search'])) {
+         $searchKey = $_POST['search'];
+         $allDataQuery = "SELECT * FROM `students` WHERE roll LIKE '%$searchKey%' ";
+        }else {
+          $allDataQuery = "SELECT * FROM `students`";
+        }
+        $query = mysqli_query($conn,$allDataQuery);
+    ?>
+    <form method="POST">
+      <label for="gsearch">Search By Roll:</label>
+      <input type="search" id="gsearch" name="search">
+      <input id="search-button" type="submit" value="Search">
+    </form>
+
+<br><br>
     <table id="customers">
   <tr>
     <th>#</th>
@@ -87,11 +120,6 @@
     <th>Action</th>
   </tr>
         <?php
-
-        include'dbConnection.php';
-
-        $allDataQuery = "SELECT * FROM `students`";
-        $query = mysqli_query($conn,$allDataQuery);
         $i =1;
         while($result = mysqli_fetch_array($query)){
             
